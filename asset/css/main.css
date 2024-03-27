@@ -1,0 +1,82 @@
+.login-page{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-image: url(/asset/resource/background/poorChildren.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.login-page .card{
+    max-width: 800px;
+    margin-inline: 30px;
+}
+
+.login-page .logo{
+    width: 100px;
+}
+
+.login-page .poorPeople{
+    width: 100%;
+}
+
+.login-page .card h1{
+    margin-block: 15px;
+}
+
+.mode-choice{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.mode-choice .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.mode-choice .horizontal{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.mode-choice .card .donor, .mode-choice .card .distributor{
+    width: 300px;
+    aspect-ratio: 16/9;
+    background-size: cover;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.mode-choice .card .donor{
+    background-image: url(/asset/resource/background/donar.png);
+}
+.mode-choice .card .donor:hover{
+    box-shadow: 0 0 10px var(--donor-blue);
+}
+.mode-choice .card .distributor{
+    background-image: url(/asset/resource/background/distributor.png);
+}
+.mode-choice .card .distributor:hover{
+    box-shadow: 0 0 10px var(--receiver-orange);
+}

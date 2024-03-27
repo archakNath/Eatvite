@@ -1,0 +1,84 @@
+main {
+    display: flex;
+    height: 100vh;
+}
+
+main .left,
+main .right {
+    width: 50%;
+    height: 100%;
+}
+
+main .left {
+    background-image: url(/asset/resource/background/poorChildren.png);
+    background-size: cover;
+}
+
+.gradientContainer {
+    height: 100%;
+    width: 100%;
+    background-color: #4fe88c2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gradientContainer img {
+    width: 200px;
+}
+
+main .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .right .card .heading {
+    display: flex;
+}
+
+main .right .card .heading img {
+    width: 70px;
+}
+
+main .right .card .heading h1 {
+    font-size: 60px;
+}
+
+main .right .card input {
+    display: block;
+    background-color: transparent;
+    border: 1px solid var(--green-color);
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border-radius: 10px;
+}
+
+main .right .card button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+main .right .card .switch-text {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media(max-width: 900px) {
+    main {
+        flex-direction: column;
+    }
+
+    main .left,
+    main .right {
+        width: 100%;
+    }
+
+    main .left{
+        height: 30%;
+    }
+    main .right{
+        height: 70%;
+    }
+}
