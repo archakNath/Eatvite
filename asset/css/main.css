@@ -1,4 +1,4 @@
-.login-page{
+.login-page {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -12,24 +12,24 @@
     display: none;
 }
 
-.login-page .card{
+.login-page .card {
     max-width: 800px;
     margin-inline: 30px;
 }
 
-.login-page .logo{
+.login-page .logo {
     width: 100px;
 }
 
-.login-page .poorPeople{
+.login-page .poorPeople {
     width: 100%;
 }
 
-.login-page .card h1{
+.login-page .card h1 {
     margin-block: 15px;
 }
 
-.mode-choice{
+.mode-choice {
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -39,7 +39,7 @@
     backdrop-filter: blur(5px);
 }
 
-.mode-choice .card{
+.mode-choice .card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,13 +47,14 @@
     gap: 10px;
 }
 
-.mode-choice .horizontal{
+.mode-choice .horizontal {
     display: flex;
     gap: 10px;
     padding: 10px;
 }
 
-.mode-choice .card .donor, .mode-choice .card .distributor{
+.mode-choice .card .donor,
+.mode-choice .card .distributor {
     width: 300px;
     aspect-ratio: 16/9;
     background-size: cover;
@@ -68,15 +69,282 @@
     transition: all .2s;
 }
 
-.mode-choice .card .donor{
+.mode-choice .card .donor {
     background-image: url(/asset/resource/background/donar.png);
 }
-.mode-choice .card .donor:hover{
+
+.mode-choice .card .donor:hover {
     box-shadow: 0 0 10px var(--donor-blue);
 }
-.mode-choice .card .distributor{
+
+.mode-choice .card .distributor {
     background-image: url(/asset/resource/background/distributor.png);
 }
-.mode-choice .card .distributor:hover{
+
+.mode-choice .card .distributor:hover {
     box-shadow: 0 0 10px var(--receiver-orange);
+}
+
+.basic-details {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.basic-details .card .horizontal {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.basic-details .card .horizontal p {
+    width: fit-content;
+    display: inline;
+}
+
+.basic-details .card button {
+    width: 100%;
+}
+
+.new-post{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-post .close{
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.new-post .card{
+    width: 350px;
+}
+
+.new-post .input{
+    margin-block: 10px;
+}
+
+.new-post .image-preview{
+    width: 100%;
+    border-radius: 10px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.new-post .buttonb{
+    margin-top: 8px;
+}
+
+.new-post .location{
+    padding: 5px 8px;
+    color: orangered;
+    border: 1px solid orangered;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: none;
+}
+
+.new-post .postBtn{
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+main .profile-pane {
+    width: 25%;
+    height: 90vh;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.037);
+    position: fixed;
+}
+
+main .profile-pane .top-mode {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-size: cover;
+}
+
+main .profile-pane .bottom-details {
+    padding: 10px;
+}
+
+main .profile-pane .bottom-details span {
+    padding: 5px 8px;
+    border: 1px solid white;
+    margin-block: 3px;
+    border-radius: 10px;
+    display: block;
+    width: fit-content;
+}
+
+main .content-pane {
+    width: 50%;
+    height: 100vh;
+    padding: 20px;
+    margin-inline: 26%;
+}
+
+main .content-pane .add-post {
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.018);
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+main .content-pane .add-post span{
+    padding: 8px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--black);
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .content-pane .inside {
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.018);
+    width: 100%;
+    cursor: pointer;
+}
+
+main .content-pane .post-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+main .content-pane .indi-post{
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+main .content-pane .indi-post p:nth-child(1){
+    color: var(--gray-3);
+    margin-bottom: 8px;
+}
+main .content-pane .indi-post p:nth-child(2){
+    margin-bottom: 4px;
+}
+
+main .content-pane .indi-post img{
+    width: 100%;
+    border-radius: 10px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+main .content-pane .no-post{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main .content-pane .no-post img{
+    width: 100px;
+}
+
+main .message-pane {
+    width: 25%;
+    height: 90vh;
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.037);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    position: fixed;
+    right: 0;
+}
+
+main .message-pane .contact-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+main .message-pane .contact-list p{
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.071);
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+main .message-pane .chat{
+    display: none;
+}
+
+main .message-pane .chat .horizontal{
+    display: flex;
+    gap: 10px;
+    padding: 8px;
+    align-items: center;
+    background-color: var(--green-color);
+    border-radius: 10px;
+    margin-top: 10px;
+    color: black;
+}
+
+main .message-pane .chat .horizontal img{
+    width: 25px;
+    cursor: pointer;
+}
+
+main .message-pane .chat .horizontalx{
+    display: flex;
+    gap: 10px;
+    padding: 8px;
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+}
+
+main .message-pane .chat .horizontalx img{
+    width: 25px;
+    cursor: pointer;
+}
+
+main .message-pane .no-message {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+main .message-pane .no-message img {
+    width: 35px;
 }

@@ -101,3 +101,12 @@ body{
     padding: 20px;
     border-radius: 10px;
 }
+
+input.input {
+    display: block;
+    background-color: transparent;
+    border: 1px solid var(--green-color);
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 10px;
+}

@@ -45,14 +45,8 @@ main .right .card .heading h1 {
     font-size: 60px;
 }
 
-main .right .card input {
-    display: block;
-    background-color: transparent;
-    border: 1px solid var(--green-color);
-    width: 100%;
+main .right .card input{
     margin-bottom: 10px;
-    padding: 12px 20px;
-    border-radius: 10px;
 }
 
 main .right .card button {

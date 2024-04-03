@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="/asset/css/universal.css">
     <link rel="stylesheet" href="/asset/css/main.css">
 </head>
+
 <body>
     <!-- <div class="loading-screen">
         <img src="/asset/resource/gif/logo_animation.gif" alt="">
@@ -43,29 +45,332 @@
         </div>
     </div>
 
-    <main>
-        
-    </main>
+    <div class="basic-details">
+        <div class="card">
+            <h1>Fill Basic Details</h1>
+            <div class="horizontal">
+                <p>Name(Individual/Organization)</p>
+                <input type="text" placeholder="Your Name" id="nameInput" class="input">
+            </div>
+            <div class="horizontal">
+                <p>Username</p>
+                <input type="text" placeholder="Username" id="usernameInput" class="input">
+            </div>
+            <div class="horizontal">
+                <h3>Address</h3>
+            </div>
+            <div class="horizontal">
+                <input type="text" placeholder="Street Address" id="streetInput" class="input">
+            </div>
+            <div class="horizontal">
+                <input type="text" placeholder="Address Line 2" id="address2Input" class="input">
+            </div>
+            <div class="horizontal">
+                <input type="text" placeholder="City" id="cityInput" class="input">
+                <input type="text" placeholder="State/Province/Region" id="stateInput" class="input">
+            </div>
+            <div class="horizontal">
+                <input type="number" placeholder="Postal/ZIP Code" id="postalInput" class="input">
+                <input type="text" placeholder="Country" id="countryInput" class="input">
+            </div>
+            <div class="horizontal">
+                <input type="number" placeholder="Phone Number" id="phoneInput" class="input">
+            </div>
+            <button class="buttonb" id="basicDetailsButton">Continue</button>
+        </div>
+    </div>
 
-    <!-- Locomotive JS  -->
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <div class="new-post">
+        <img src="/asset/resource/icon/close.svg" alt="" class="close">
+        <div class="card">
+            <h1>New Post</h1>
+            <input type="text" placeholder="Type a message" class="input">
+            <img src="/asset/resource/background/default.jpg" class="image-preview" alt="">
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            <button class="buttonb">Add current location</button>
+            <p class="location"></p>
+            <button class="buttonb postBtn">Post Leftover</button>
+        </div>
+    </div>
+
+    <main>
+        <div class="profile-pane">
+            <div class="top-mode"></div>
+            <div class="bottom-details">
+                <h3></h3>
+                <h1></h1>
+                <span></span>
+                <p></p>
+            </div>
+        </div>
+        <div class="content-pane">
+            <div class="add-post">
+                <span>AG</span>
+                <div class="inside">
+                    <p>Start a post, fill a stomach</p>
+                </div>
+            </div>
+            <div class="post-list"></div>
+            <div class="no-post">
+                <img src="/asset/resource/icon/cactus.svg" alt="">
+                <p>No post to display</p>
+            </div>
+        </div>
+        <div class="message-pane">
+            <h1>Messages</h1>
+            <div class="contact-list">
+            </div>
+            <div class="chat">
+                <div class="horizontal">
+                    <img src="/asset/resource/icon/close.svg" alt="">
+                    <p>Archak Nath</p>
+                </div>
+                <div class="chat-list"></div>
+                <div class="horizontalx">
+                    <input type="text" class="input">
+                    <img src="/asset/resource/icon/send.svg" alt="">
+                </div>
+            </div>
+            <div class="no-message">
+                <img src="/asset/resource/icon/no-mesasge.svg" alt="">
+                <p>No message<br>to display</p>
+            </div>
+        </div>
+    </main>
 
     <!--  Gsap is needed for Basic Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-    <!-- Scroll Trigger is needed for Scroll Effects -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- Three.js is needed for 3d Effects -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
-
-    <!-- ControlKit is needed for Debug Panel -->
-    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
-
-    <!-- Shery JS for cool Effects -->
-    <script type="text/javascript" src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
-    <script src="/asset/js/shery.js"></script>
     <script src="/asset/js/universal.js"></script>
     <script src="/asset/js/main.js"></script>
+
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+        import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
+        import { getDatabase, ref, set, child, get, update, remove } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDBz9wEi7QGFMIHIurcHoR6A-V9siWMUng",
+            authDomain: "sabjiiwala-ef33d.firebaseapp.com",
+            databaseURL: "https://sabjiiwala-ef33d-default-rtdb.firebaseio.com",
+            projectId: "sabjiiwala-ef33d",
+            storageBucket: "sabjiiwala-ef33d.appspot.com",
+            messagingSenderId: "133860441354",
+            appId: "1:133860441354:web:f29e8953a336bb5d8f4ef3",
+            measurementId: "G-DGXTDJWKM1"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        function uploadImage(ImgToUpload) {
+            if (ImgToUpload instanceof File == false) {
+                console.log('not image')
+                return;
+            }
+
+            const metaData = {
+                contentType: ImgToUpload.type
+            }
+
+            const storage = getStorage();
+
+            const storageRef = sRef(storage, "images/" + ImgToUpload.name);
+
+            const UploadTask = uploadBytesResumable(storageRef, ImgToUpload, metaData);
+
+            UploadTask.on('state-changed', (snapshot) => {
+                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            },
+                (error) => {
+                    console.log('Error: Image not uploaded');
+                },
+                () => {
+                    getDownloadURL(UploadTask.snapshot.ref).then((getDownloadURL) => {
+                        savetoRealDB(getDownloadURL);
+                    });
+                });
+        }
+        var realdb = getDatabase();
+
+        const newPost = document.querySelector('.new-post');
+        function savetoRealDB(URL) {
+
+            set(ref(realdb, 'leftover/' + new Date().toDateString() + new Date().toLocaleTimeString() + new Date().getMilliseconds()), {
+                Message: document.querySelector('.new-post .input').value,
+                Image: URL,
+                Latitude: sessionStorage.getItem('latitude'),
+                Longitude: sessionStorage.getItem('longitude'),
+                Name: localStorage.getItem('name'),
+                Username: localStorage.getItem('username')
+            }).then(() => {
+                newPost.style.display = 'none';
+                alert('Post uploaded');
+                location.reload();
+            }).catch((error) => {
+                alert('Error adding data to the database:', error.message);
+            });
+        }
+
+        // post
+        document.querySelector('.new-post .postBtn').onclick = () => {
+            if (sessionStorage.getItem('imageURL') != null) {
+                uploadImage(selectedImage);
+            } else {
+                alert('Pick an image');
+            }
+        }
+
+        function base64ToFile(base64String) {
+            // Remove the data:image/jpeg;base64, header
+            const base64Image = base64String.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
+
+            // Convert the base64 string to a Blob
+            const byteCharacters = atob(base64Image);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: 'image/jpeg' });
+
+            // Create a URL for the Blob object
+            const filePath = URL.createObjectURL(blob);
+
+            return filePath;
+        }
+
+        // pick image
+        var files;
+        var selectedImage;
+        document.querySelector('.new-post .image-preview').addEventListener('click', function () {
+            var fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.multiple = true;
+            fileInput.click();
+            fileInput.addEventListener('change', function (event) {
+                files = event.target.files;
+                selectedImage = files[0];
+                if (selectedImage) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const imageUrl = e.target.result;
+
+                        const imagePreview = document.querySelector('.new-post .image-preview');
+                        imagePreview.src = imageUrl;
+                        sessionStorage.setItem('imageURL', imageUrl);
+                    };
+                    reader.readAsDataURL(selectedImage);
+                }
+            });
+        });
+
+        // display leftover posts
+        var database = getDatabase();
+        const datalist = document.querySelector('.post-list');
+        var dataRef = ref(database);
+
+        get(child(dataRef, "leftover"))
+            .then((snapshot) => {
+                var values = [];
+                snapshot.forEach(element => {
+
+                    const indiPost = document.createElement('div');
+                    const username = document.createElement('p');
+                    const message = document.createElement('p');
+                    const image = document.createElement('img');
+                    const contactBtn = document.createElement('button');
+                    indiPost.setAttribute('class', 'indi-post');
+
+                    username.textContent = element.val().Username;
+                    message.textContent = element.val().Message;
+                    image.src = element.val().Image;
+
+                    indiPost.appendChild(username);
+                    indiPost.appendChild(message);
+                    indiPost.appendChild(image);
+                    if (localStorage.getItem('mode') != 'Donors') {
+                        contactBtn.setAttribute('class', 'buttonb');
+                        contactBtn.textContent = 'Contact';
+                        indiPost.appendChild(contactBtn);
+                    }
+                    datalist.appendChild(indiPost);
+
+                    contactBtn.onclick = () => {
+                        sendMessage(element.val().Username);
+                    }
+
+                })
+            })
+
+        const contactList = document.querySelector('main .message-pane .contact-list');
+        const chat = document.querySelector('main .message-pane .chat');
+        const chatList = document.querySelector('main .message-pane .chat-list');
+        function updateMessage() {
+            var people = [];
+            var messages = [];
+            contactList.innerHTML = '';
+            get(child(dataRef, "message"))
+                .then((snapshot) => {
+                    var values = [];
+                    snapshot.forEach(element => {
+
+                        const name = document.createElement('p');
+                        if (element.val().Sender == localStorage.getItem('username')) {
+                            if (!people.includes(element.val().Receiver)) {
+                                people.push(element.val().Receiver);
+                                document.querySelector('main .message-pane .no-message').style.display = 'none';
+                                name.textContent = element.val().Receiver;
+                                contactList.appendChild(name);
+                            }
+                            messages.push({
+                                sender: element.val().Sender,
+                                receiver: element.val().Receiver,
+                                message: element.val().Message
+                            });
+                        } else if (element.val().Receiver == localStorage.getItem('username')) {
+                            if (!people.includes(element.val().Sender)) {
+                                people.push(element.val().Sender);
+                                document.querySelector('main .message-pane .no-message').style.display = 'none';
+                                name.textContent = element.val().Sender;
+                                contactList.appendChild(name);
+                            }
+                            messages.push({
+                                sender: element.val().Sender,
+                                receiver: element.val().Receiver,
+                                message: element.val().Message
+                            });
+                        }
+                        name.onclick = () => {
+                            contactList.style.display = 'none';
+                            chat.style.display = 'block';
+                        }
+                    })
+                })
+        }
+        updateMessage();
+        function sendMessage(username) {
+
+            set(ref(realdb, 'message/' + new Date().toDateString() + new Date().toLocaleTimeString() + new Date().getMilliseconds()), {
+                Message: 'Lets talk about how to end hunger',
+                Receiver: username,
+                Sender: localStorage.getItem('username')
+            }).then(() => {
+                location.reload();
+            }).catch((error) => {
+                alert('Error adding data to the database:', error.message);
+            });
+        }
+
+        // close chat
+        document.querySelector('main .message-pane .chat .horizontal img').onclick = () => {
+            chat.style.display = 'none';
+            contactList.style.display = 'flex';
+        }
+    </script>
 </body>
+
 </html>
